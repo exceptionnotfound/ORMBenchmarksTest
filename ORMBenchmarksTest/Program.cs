@@ -33,17 +33,17 @@ namespace ORMBenchmarksTest
                     case 'T':
                         List<TestResult> testResults = new List<TestResult>();
                         
-                        Console.WriteLine("# of Test Runs (1-100):");
+                        Console.WriteLine("# of Test Runs:");
                         NumRuns = int.Parse(Console.ReadLine());
 
                         //Gather Details for Test
-                        Console.WriteLine("# of Sports per Run (1-8): ");
+                        Console.WriteLine("# of Sports per Run: ");
                         NumSports = int.Parse(Console.ReadLine());
 
-                        Console.WriteLine("# of Teams per Sport (1-20): ");
+                        Console.WriteLine("# of Teams per Sport: ");
                         NumTeams = int.Parse(Console.ReadLine());
 
-                        Console.WriteLine("# of Players per Team (1-25): ");
+                        Console.WriteLine("# of Players per Team: ");
                         NumPlayers = int.Parse(Console.ReadLine());
 
 
