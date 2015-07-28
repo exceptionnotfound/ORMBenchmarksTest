@@ -108,7 +108,7 @@ namespace ORMBenchmarksTest
             {
                 teamsForSportResults.Add(testSignature.GetTeamsForSport(i));
             }
-            result.TeamsForSportMilliseconds = teamsForSportResults.Average();
+            result.TeamsForSportMilliseconds = Math.Round(teamsForSportResults.Average(), 2);
             results.Add(result);
 
             return results;
