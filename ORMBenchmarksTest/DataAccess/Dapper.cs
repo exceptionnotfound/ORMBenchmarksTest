@@ -17,7 +17,7 @@ public class Dapper : ITestSignature
     {
         Stopwatch watch = new Stopwatch();
         watch.Start();
-        using (SqlConnection conn = new SqlConnection("data source=(LocalDB)\\v11.0;attachdbfilename=|DataDirectory|\\Sports.mdf;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework"))
+        using (SqlConnection conn = new SqlConnection(Constants.ConnectionString))
         {
             conn.Open();
             var player = conn.Query<PlayerDTO>("SELECT Id, FirstName, LastName, DateOfBirth, TeamId FROM Player WHERE Id = @ID", new{ ID = id});
@@ -30,7 +30,7 @@ public class Dapper : ITestSignature
     {
         Stopwatch watch = new Stopwatch();
         watch.Start();
-        using (SqlConnection conn = new SqlConnection("data source=(LocalDB)\\v11.0;attachdbfilename=|DataDirectory|\\Sports.mdf;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework"))
+        using (SqlConnection conn = new SqlConnection(Constants.ConnectionString))
         {
             conn.Open();
             var players = conn.Query<List<PlayerDTO>>("SELECT Id, FirstName, LastName, DateOfBirth, TeamId FROM Player WHERE TeamId = @ID", new { ID = teamId });
@@ -43,7 +43,7 @@ public class Dapper : ITestSignature
     {
         Stopwatch watch = new Stopwatch();
         watch.Start();
-        using (SqlConnection conn = new SqlConnection("data source=(LocalDB)\\v11.0;attachdbfilename=|DataDirectory|\\Sports.mdf;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework"))
+        using (SqlConnection conn = new SqlConnection(Constants.ConnectionString))
         {
             conn.Open();
             var players = conn.Query<PlayerDTO, TeamDTO, PlayerDTO>("SELECT p.Id, p.FirstName, p.LastName, p.DateOfBirth, p.TeamId, t.Id as TeamId, t.Name, t.SportId FROM Team t "

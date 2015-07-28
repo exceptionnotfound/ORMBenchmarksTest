@@ -15,7 +15,7 @@ namespace ORMBenchmarksTest.DataAccess
         {
             Stopwatch watch = new Stopwatch();
             watch.Start();
-            using(SqlConnection conn = new SqlConnection("data source=(LocalDB)\\v11.0;attachdbfilename=|DataDirectory|\\Sports.mdf;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework"))
+            using(SqlConnection conn = new SqlConnection(Constants.ConnectionString))
             {
                 conn.Open();
                 using(SqlDataAdapter adapter = new SqlDataAdapter("SELECT Id, FirstName, LastName, DateOfBirth, TeamId FROM Player WHERE Id = @ID", conn))
@@ -33,7 +33,7 @@ namespace ORMBenchmarksTest.DataAccess
         {
             Stopwatch watch = new Stopwatch();
             watch.Start();
-            using(SqlConnection conn = new SqlConnection("data source=(LocalDB)\\v11.0;attachdbfilename=|DataDirectory|\\Sports.mdf;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework"))
+            using (SqlConnection conn = new SqlConnection(Constants.ConnectionString))
             {
                 conn.Open();
                 using(SqlDataAdapter adapter = new SqlDataAdapter("SELECT Id, FirstName, LastName, DateOfBirth, TeamId FROM Player WHERE TeamId = @ID", conn))
@@ -51,7 +51,7 @@ namespace ORMBenchmarksTest.DataAccess
         {
             Stopwatch watch = new Stopwatch();
             watch.Start();
-            using(SqlConnection conn = new SqlConnection("data source=(LocalDB)\\v11.0;attachdbfilename=|DataDirectory|\\Sports.mdf;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework"))
+            using (SqlConnection conn = new SqlConnection(Constants.ConnectionString))
             {
                 conn.Open();
                 using(SqlDataAdapter adapter = new SqlDataAdapter("SELECT p.Id, p.FirstName, p.LastName, p.DateOfBirth, p.TeamId, t.Id as TeamId, t.Name, t.SportId FROM Player p "

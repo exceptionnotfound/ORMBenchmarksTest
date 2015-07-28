@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\AutoMapperConfiguration.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="DataAccess\ADONET.cs" />
     <Compile Include="DataAccess\Dapper.cs" />
     <Compile Include="DataAccess\EntityFramework.cs" />
