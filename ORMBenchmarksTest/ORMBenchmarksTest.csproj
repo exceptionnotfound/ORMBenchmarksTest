@@ -81,16 +81,11 @@
     <Compile Include="DataAccess\ADONET.cs" />
     <Compile Include="DataAccess\Dapper.cs" />
     <Compile Include="DataAccess\EntityFramework.cs" />
-    <Compile Include="DataAccess\General.cs" />
+    <Compile Include="TestData\Database.cs" />
     <Compile Include="DataAccess\ITestSignature.cs" />
     <Compile Include="DTOs\PlayerDTO.cs" />
     <Compile Include="DTOs\SportDTO.cs" />
     <Compile Include="DTOs\TeamDTO.cs" />
-    <Compile Include="Mapping\Attributes\DataNamesAttribute.cs" />
-    <Compile Include="Mapping\Helpers\AttributeHelper.cs" />
-    <Compile Include="Mapping\Helpers\PropertyMapHelper.cs" />
-    <Compile Include="Mapping\IMapper.cs" />
-    <Compile Include="Mapping\Mapper.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\SportContext.cs" />
     <Compile Include="Models\Sport.cs" />

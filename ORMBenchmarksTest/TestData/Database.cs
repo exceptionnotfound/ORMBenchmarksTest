@@ -6,11 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ORMBenchmarksTest.DataAccess
+namespace ORMBenchmarksTest.TestData
 {
-    public static class GeneralDataAccess
+    public static class Database
     {
-        public static void ResetDatabase()
+        public static void Reset()
         {
             using(SportContext context = new SportContext())
             {
@@ -20,7 +20,7 @@ namespace ORMBenchmarksTest.DataAccess
             }
         }
 
-        public static void LoadDatabase(List<SportDTO> sports, List<TeamDTO> teams, List<PlayerDTO> players)
+        public static void Load(List<SportDTO> sports, List<TeamDTO> teams, List<PlayerDTO> players)
         {
             AddSports(sports);
             AddTeams(teams);

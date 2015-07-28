@@ -61,8 +61,8 @@ namespace ORMBenchmarksTest
                             }
                         }
 
-                        GeneralDataAccess.ResetDatabase();
-                        GeneralDataAccess.LoadDatabase(sports, teams, players);
+                        Database.Reset();
+                        Database.Load(sports, teams, players);
 
                         for (int i = 0; i < NumRuns; i++)
                         {
@@ -95,14 +95,14 @@ namespace ORMBenchmarksTest
             {
                 playerByIDResults.Add(testSignature.GetPlayerByID(i));
             }
-            result.PlayerByIDMilliseconds = playerByIDResults.Average();
+            result.PlayerByIDMilliseconds = Math.Round(playerByIDResults.Average(), 2);
 
             List<long> playersForTeamResults = new List<long>();
             for (int i = 1; i <= NumTeams; i++)
             {
                 playersForTeamResults.Add(testSignature.GetPlayersForTeam(i));
             }
-            result.PlayersForTeamMilliseconds = playersForTeamResults.Average();
+            result.PlayersForTeamMilliseconds = Math.Round(playersForTeamResults.Average(), 2);
             List<long> teamsForSportResults = new List<long>();
             for (int i = 1; i <= NumSports; i++)
             {
