@@ -81,6 +81,7 @@
     <Compile Include="Constants.cs" />
     <Compile Include="DataAccess\ADONET.cs" />
     <Compile Include="DataAccess\Dapper.cs" />
+    <Compile Include="DataAccess\EntityFrameworkResuseWithQuery.cs" />
     <Compile Include="DataAccess\EntityFrameworkResuse.cs" />
     <Compile Include="DataAccess\EntityFramework.cs" />
     <Compile Include="TestData\Database.cs" />
