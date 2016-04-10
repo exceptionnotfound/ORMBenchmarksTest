@@ -15,6 +15,6 @@ namespace ORMBenchmarksTest.DTOs
         public string Name { get; set; }
         public DateTime FoundingDate { get; set; }
 
-        public List<PlayerDTO> Players { get; set; }
+        public List<PlayerDTO> Players { get; set; } = new List<PlayerDTO>();
     }
 }
