@@ -10,15 +10,21 @@ using System.Data.Entity;
 
 namespace ORMBenchmarksTest.DataAccess
 {
-    public class EntityFramework : ITestSignature
+    public class EntityFrameworkReusingWithQueryContext : ITestSignature, IDisposable
     {
+        private readonly SportContext _context;
+
+        public EntityFrameworkReusingWithQueryContext()
+        {
+            _context = new SportContext();
+        }
+
         public long GetPlayerByID(int id)
         {
             Stopwatch watch = new Stopwatch();
             watch.Start();
-            using (SportContext context = new SportContext())
             {
-                var player = context.Players.AsNoTracking().Single(x => x.Id == id);
+                var player = _context.Players.SqlQuery(@"SELECT Id, FirstName, LastName, DateOfBirth, TeamId FROM Player WHERE Id = @p0", id).Single();
             }
             watch.Stop();
             return watch.ElapsedMilliseconds;
@@ -28,9 +34,8 @@ namespace ORMBenchmarksTest.DataAccess
         {
             Stopwatch watch = new Stopwatch();
             watch.Start();
-            using (SportContext context = new SportContext())
             {
-                var players = context.Players.AsNoTracking().Where(x => x.TeamId == teamId).ToList();
+                var players = _context.Players.SqlQuery(@"SELECT Id, FirstName, LastName, DateOfBirth, TeamId FROM Player WHERE TeamId = @p0", teamId).ToList();
             }
             watch.Stop();
             return watch.ElapsedMilliseconds;
@@ -38,15 +43,21 @@ namespace ORMBenchmarksTest.DataAccess
 
         public long GetTeamsForSport(int sportId)
         {
+            return 0;
+            /*
             Stopwatch watch = new Stopwatch();
             watch.Start();
-            using (SportContext context = new SportContext())
             {
-                //var players = context.Players.AsNoTracking().Where(x => x.Team.SportId == sportId).ToList();
-                var teams = context.Teams.AsNoTracking().Include(t=>t.Players).Where(x => x.SportId == sportId).ToList();
+                var players = _context.Players.AsNoTracking().Where(x => x.Team.SportId == sportId).ToList();
             }
             watch.Stop();
             return watch.ElapsedMilliseconds;
+            */
+        }
+
+        public void Dispose()
+        {
+            _context.Dispose();
         }
     }
 }

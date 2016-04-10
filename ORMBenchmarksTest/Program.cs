@@ -66,17 +66,24 @@ namespace ORMBenchmarksTest
 
                         for (int i = 0; i < NumRuns; i++)
                         {
+                            ADONET adoTest = new ADONET();
+                            testResults.AddRange(RunTests(i, Framework.ADONET, adoTest));
+                            
+                            DataAccess.Dapper dapperTest = new DataAccess.Dapper();
+                            testResults.AddRange(RunTests(i, Framework.Dapper, dapperTest));
+
                             EntityFramework efTest = new EntityFramework();
                             testResults.AddRange(RunTests(i, Framework.EntityFramework, efTest));
 
-                            ADONET adoTest = new ADONET();
-                            testResults.AddRange(RunTests(i, Framework.ADONET, adoTest));
+                            EntityFrameworkReusingContext efTest2 = new EntityFrameworkReusingContext();
+                            testResults.AddRange(RunTests(i, Framework.EntityFrameworkReusingContext, efTest2));
+                            efTest2.Dispose();
 
-                            DataAccess.Dapper dapperTest = new DataAccess.Dapper();
-                            testResults.AddRange(RunTests(i, Framework.Dapper, dapperTest));
+                            EntityFrameworkReusingWithQueryContext efTest3 = new EntityFrameworkReusingWithQueryContext();
+                            testResults.AddRange(RunTests(i, Framework.EntityFrameworkReusingWithQuery, efTest3));
+                            efTest3.Dispose();
                         }
                         ProcessResults(testResults);
-
                         break;
                 }
 

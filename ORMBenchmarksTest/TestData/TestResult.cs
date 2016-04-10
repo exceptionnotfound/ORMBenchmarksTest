@@ -19,6 +19,8 @@ namespace ORMBenchmarksTest.TestData
     {
         ADONET,
         EntityFramework,
+        EntityFrameworkReusingContext,
+        EntityFrameworkReusingWithQuery,
         Dapper
     }
 }

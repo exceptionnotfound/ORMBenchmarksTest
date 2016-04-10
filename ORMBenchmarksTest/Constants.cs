@@ -8,6 +8,6 @@ namespace ORMBenchmarksTest
 {
     public static class Constants
     {
-        public static readonly string ConnectionString = "data source=(LocalDB)\\v11.0;attachdbfilename=|DataDirectory|\\Sports.mdf;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
+        public static readonly string ConnectionString = "data source=(LocalDB)\\MSSQLLocalDB;attachdbfilename=|DataDirectory|\\Sports.mdf;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
     }
 }
