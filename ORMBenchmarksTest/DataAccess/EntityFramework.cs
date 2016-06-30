@@ -18,7 +18,7 @@ namespace ORMBenchmarksTest.DataAccess
             watch.Start();
             using (SportContext context = new SportContext())
             {
-                var player = context.Players.Where(x => x.Id == id).First();
+                var player = context.Players.Find(id);
             }
             watch.Stop();
             return watch.ElapsedMilliseconds;
@@ -30,7 +30,7 @@ namespace ORMBenchmarksTest.DataAccess
             watch.Start();
             using (SportContext context = new SportContext())
             {
-                var players = context.Players.Where(x => x.TeamId == teamId).ToList();
+                var players = context.Players.AsNoTracking().Where(x => x.TeamId == teamId).ToList();
             }
             watch.Stop();
             return watch.ElapsedMilliseconds;
@@ -42,7 +42,7 @@ namespace ORMBenchmarksTest.DataAccess
             watch.Start();
             using (SportContext context = new SportContext())
             {
-                var players = context.Teams.Include(x=>x.Players).Where(x => x.SportId == sportId).ToList();
+                var players = context.Teams.AsNoTracking().Include(x=>x.Players).Where(x => x.SportId == sportId).ToList();
             }
             watch.Stop();
             return watch.ElapsedMilliseconds;
