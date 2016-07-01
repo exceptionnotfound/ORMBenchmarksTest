@@ -72,6 +72,9 @@ namespace ORMBenchmarksTest
                             ADONET adoTest = new ADONET();
                             testResults.AddRange(RunTests(i, Framework.ADONET, adoTest));
 
+                            ADONetReader adoReaderTest = new ADONetReader();
+                            testResults.AddRange(RunTests(i, Framework.ADONetDr, adoReaderTest));
+
                             DataAccess.Dapper dapperTest = new DataAccess.Dapper();
                             testResults.AddRange(RunTests(i, Framework.Dapper, dapperTest));
                         }
