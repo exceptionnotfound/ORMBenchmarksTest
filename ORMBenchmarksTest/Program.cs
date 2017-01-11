@@ -69,6 +69,9 @@ namespace ORMBenchmarksTest
                             EntityFramework efTest = new EntityFramework();
                             testResults.AddRange(RunTests(i, Framework.EntityFramework, efTest));
 
+                            EntityFrameworkCore efCoreTest = new EntityFrameworkCore();
+                            testResults.AddRange(RunTests(i, Framework.EntityFrameworkCore, efCoreTest));
+
                             ADONET adoTest = new ADONET();
                             testResults.AddRange(RunTests(i, Framework.ADONET, adoTest));
 
