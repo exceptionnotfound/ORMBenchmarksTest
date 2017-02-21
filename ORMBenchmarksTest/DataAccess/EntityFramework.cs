@@ -42,7 +42,7 @@ namespace ORMBenchmarksTest.DataAccess
             watch.Start();
             using (SportContext context = new SportContext())
             {
-                var players = context.Teams.AsNoTracking().Include(x=>x.Players).Where(x => x.SportId == sportId).ToList();
+                var players = context.Teams.AsNoTracking().Where(x => x.SportId == sportId).Select(x=>x.Players).ToList();
             }
             watch.Stop();
             return watch.ElapsedMilliseconds;
